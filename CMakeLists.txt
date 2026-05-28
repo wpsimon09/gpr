@@ -21,13 +21,7 @@ SET(GPR_CPPS src/parser.cpp
 
 set(CMAKE_MACOSX_RPATH 1)
 
-add_library(gpr SHARED ${GPR_CPPS})
-
-SET(TEST_FILES test/parser_tests.cpp
-        test/main.cpp)
-
-add_executable(all-tests ${TEST_FILES})
-target_link_libraries(all-tests gpr)
+add_library(gpr STATIC ${GPR_CPPS})
 
 add_executable(parse-gcode src/main.cpp)
 target_link_libraries(parse-gcode gpr)
